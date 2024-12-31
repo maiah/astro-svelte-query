@@ -1,9 +1,11 @@
 <script lang="ts">
   import { createRouter } from "@nanostores/router";
 
+  import Counter from "./Counter.svelte";
+
   const router = createRouter({
-    home: "/",
-    about: "/about",
+    home: "/app",
+    about: "/app/about",
   });
 
   let page = $state({ value: "home" });
@@ -17,13 +19,11 @@
 
     page.value = route.route;
   });
-
-  import Counter from "./Counter.svelte";
 </script>
 
 <div>
-  <a href="/">Home</a>
-  <a href="/about">About</a>
+  <a href="/app">Home</a>
+  <a href="/app/about">About</a>
 </div>
 
 {#if page.value === "home"}

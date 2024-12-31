@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.0.0",
     "@astrojs/svelte": "^7.0.2",
     "@nanostores/router": "^0.16.1",
     "astro": "^5.1.1",
