@@ -1,5 +1,33 @@
 <script lang="ts">
-import Counter from "./Counter.svelte";
+  import { createRouter } from "@nanostores/router";
+
+  const router = createRouter({
+    home: "/",
+    about: "/about",
+  });
+
+  let page = $state({ value: "home" });
+
+  router.subscribe((route) => {
+    console.log("==== current route:", route?.path, route?.route);
+
+    if (!route) {
+      return;
+    }
+
+    page.value = route.route;
+  });
+
+  import Counter from "./Counter.svelte";
 </script>
 
-<Counter />
+<div>
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+</div>
+
+{#if page.value === "home"}
+  <Counter />
+{:else if page.value === "about"}
+  <h3>This is the about page!</h3>
+{/if}
