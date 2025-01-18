@@ -14,6 +14,7 @@
     "@astrojs/svelte": "^7.0.2",
     "@nanostores/router": "^0.16.1",
     "astro": "^5.1.1",
+    "date-fns": "^4.1.0",
     "nanostores": "^0.11.3",
     "svelte": "^5.15.0",
     "typescript": "^5.7.2"

@@ -1,3 +1,13 @@
+---
+import { ClientRouter } from "astro:transitions";
+
+Astro.response.headers.set(
+      "Cache-Control",
+      // Cache for 7 days, swr for 8 days
+      "max-age=604800, stale-while-revalidate=691200"
+    );
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,8 +16,14 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
+		<ClientRouter />
 	</head>
+
 	<body>
+		<div>
+		  <a href="/app">THE HOME</a> | <a href="/the-about">THE ABOUT</a>
+	  </div>
+
 		<slot />
 	</body>
 </html>
